@@ -261,7 +261,9 @@ if "data" not in st.session_state:
             print(f"❌ Error: {e}")
     
     folder_input = st.text_input("📂 Enter the full path to the folder containing .csv/.xlsx files: ").strip()
-    # print(folder_input)
+    if folder_input:
+        print(folder_input)
+        st.write("Processing files... Please wait.")
     try:
         df = combine_files(folder_input)
         st.session_state.data = df
